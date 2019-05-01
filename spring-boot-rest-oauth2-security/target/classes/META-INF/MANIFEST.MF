@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: rohit
+Build-Jdk: 12.0.1
+Implementation-Title: spring-boot-rest-oauth2-security
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.rohit
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/spring-boot-rest-oauth2-security
+Created-By: Maven Integration for Eclipse
+
