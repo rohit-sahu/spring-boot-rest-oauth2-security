@@ -9,5 +9,4 @@ public class SpringBootRestOauth2SecurityApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootRestOauth2SecurityApplication.class, args);
 	}
-
 }

@@ -12,21 +12,32 @@ public class HomeController {
 	public String home() {
 		return "Hello Home Rest......";
 	}
+	
+	@RequestMapping("/hello")
+	public String helloPage() {
+		return "Hello Page";
+	}
+	
+	@PreAuthorize("#oauth2.hasScope('read') and hasAnyRole('ROLE_ADMIN')")
+	@RequestMapping("/secure")
+	public String securePage() {
+		return "Secure Page";
+	}
 
-	@PreAuthorize("oauth2.hasScope('read')")
+	@PreAuthorize("#oauth2.hasScope('read')")
 	@RequestMapping("/publishes")
 	public String publicPage() {
 		return "Public Page";
 	}
 
 	@PreAuthorize("#oauth2.hasScope('read')")
-	@GetMapping("/private")
+	@GetMapping("/api/private")
 	public String privatePage() {
 		return "Private Page";
 	}
 
-	@PreAuthorize("#oauth2.hasScope('read')")
-	@GetMapping("/admin")
+	@PreAuthorize("#oauth2.hasScope('read') and hasAnyRole('ROLE_ADMIN')")
+	@GetMapping("/api/admin")
 	public String admin() {
 		return "Administrator Page";
 	}

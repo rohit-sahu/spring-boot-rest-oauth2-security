@@ -1,5 +1,7 @@
 package com.rohit.springbootrestoauth2security.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,9 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+
 @Entity
 @Table
-public class Role {
+public class Role implements Serializable, GrantedAuthority {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -48,5 +54,10 @@ public class Role {
 	@Override
 	public String toString() {
 		return "Role [role_id=" + role_id + ", roleName=" + roleName + "]";
+	}
+
+	@Override
+	public String getAuthority() {
+		return roleName;
 	}
 }
